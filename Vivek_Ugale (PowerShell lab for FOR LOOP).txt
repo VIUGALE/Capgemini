@@ -1,0 +1,56 @@
+1. Create 10 files
+
+Solution 
+ 
+for($a=0;$a -lt 10;$a++){
+
+New-Item -Path "New$a"  -ItemType File;
+
+}
+
+
+2. Create 10 folders
+3. Create 10 folders inside the folders created in step 2
+
+Solution 
+      for($i=1;$i -lt 11;$i++)
+   { 
+      for($j=1;$j -lt 11;$j++)
+    
+   {
+      New-Item -Itemtype File -path "VivekUgale$i\Folder$j"; 
+   }
+   }
+   
+4. Create 10 files in the 10 folders created in step 3
+
+Solution 
+
+      for($i=1;$i -lt 11;$i++)
+   { 
+      for($j=1;$j -lt 11;$j++)
+    { 
+      for($k=1;$k -lt 11;$k++)
+   {
+      New-Item -Itemtype File -path "VivekUgale$i\Folder$j\file$k.txt"; 
+   }
+   }
+   }
+
+5. Copy 10 files to each of 10 folders
+
+Solution 
+
+   for($i=1;$i -lt 11;$i++)
+{
+   for($j=1;$j -lt 11;$j++)
+{
+   Copy-Item new$i.txt VivekUgale$j;
+}
+}
+ 
+
+6. Remove all the files from the folders
+
+Solution 
+    Get-ChildItem -Path $Vivek -Filter *.txt -Recurse | Remove-Item
